@@ -1,32 +1,29 @@
-//package cs652.cdecl;
-
-import org.antlr.v4.runtime.ANTLRFileStream;
+package cs652.cdecl;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.tree.ParseTree;
 
 public class Tool {
 	public static void main(String[] args) {
-		String read = "sentence";
+		String read = "int *f();";
 		ANTLRInputStream input = new ANTLRInputStream(read);
-
-		// create a lexer that feeds off of input CharStream
 		CDeclLexer lexer = new CDeclLexer(input);
-		// create a buffer of tokens pulled from the lexer
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
-		// create a parser that feeds off the tokens buffer
 		CDeclParser parser = new CDeclParser(tokens);
-
-		CDeclParser.EContext tree = parser.e();
-		//System.out.println(tree.toStringTree(parser));
-
+		CDeclParser.DeclarationContext tree = parser.declaration();
 		EnglishGenerator visitor = new EnglishGenerator();
-		int v = visitor.visit(tree);
-		System.out.println(v);
-		// YOU MUST FILL THIS IN
+		//String text = tree.toStringTree(parser);
+		//System.out.println(text);
+		String visitree = visitor.visit(tree);
+		System.out.println(visitree);
+
+		String output = translate(visitree);
+		System.out.println(visitree);
+
 	}
 
 	public static String translate(String cdeclText) {
-		// YOU MUST FILL THIS IN
+		String result = "";
+		result = cdeclText.replace("void", "nothing");
+		return result;
 	}
 }
