@@ -6,7 +6,6 @@ public class EnglishGenerator extends CDeclBaseVisitor<String> {
 
     public String visitVar(CDeclParser.VarContext ctx) {
         return ctx.getText() + " is a ";
-        //return visit(ctx.declarator()) + " is a ";
     }
 
     public String visitTypename(CDeclParser.TypenameContext ctx) {
