@@ -1,7 +1,5 @@
 package cs652.cdecl;
 
-import cs652.cdecl.CDeclBaseVisitor;
-
 public class EnglishGenerator extends CDeclBaseVisitor<String> {
 
     public String visitVar(CDeclParser.VarContext ctx) {
@@ -31,5 +29,4 @@ public class EnglishGenerator extends CDeclBaseVisitor<String> {
     public String visitDeclaration(CDeclParser.DeclarationContext ctx) {
         return visit(ctx.declarator()) + ctx.typename().getText();
     }
-
 }

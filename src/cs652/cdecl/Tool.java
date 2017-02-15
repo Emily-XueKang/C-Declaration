@@ -9,7 +9,6 @@ public class Tool {
 		 String output = translator.translate(input);
 		 System.out.println(output);
 	}
-
 	public static String translate(String cdeclText) {
 		ANTLRInputStream input = new ANTLRInputStream(cdeclText);
 		CDeclLexer lexer = new CDeclLexer(input);
