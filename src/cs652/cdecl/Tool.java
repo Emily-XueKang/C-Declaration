@@ -5,6 +5,9 @@ import org.antlr.v4.runtime.CommonTokenStream;
 public class Tool {
 	public static void main(String[] args) {
 		 Tool translator = new Tool();
+		 String input = "int *(*f[])();";
+		 String output = translator.translate(input);
+		 System.out.println(output);
 	}
 
 	public static String translate(String cdeclText) {
